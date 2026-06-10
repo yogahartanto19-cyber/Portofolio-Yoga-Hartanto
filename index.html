@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional - Yoga Hartanto, S.Ak.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        header .degree {
+            font-size: 1.2rem;
+            color: #00d2ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            opacity: 0.9;
+        }
+        
+        /* TOMBOL KONTAK (CONTACT BUTTONS) + ANIMASI SMOOTH */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        /* Efek saat kursor mendekati tombol */
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+        /* Efek Animasi Klik Lembut (Tertekan ke Bawah) */
+        .btn-contact:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .btn-wa {
+            background-color: #25D366;
+        }
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        .btn-linkedin {
+            background-color: #0077B5;
+        }
+        .footer-contacts {
+            margin-bottom: 15px;
+        }
+        .footer-contacts .btn-contact {
+            padding: 6px 15px;
+            font-size: 0.85rem;
+            box-shadow: none;
+        }
+
+        /* ANIMASI FADE-IN (HALUS SAAT WEB DIBUKA) */
+        @keyframes munculPerlahan {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .container {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+            animation: munculPerlahan 1s ease-out; /* Efek transisi halus 1 detik */
+        }
+
+        h2 {
+            color: #203a43;
+            border-bottom: 3px solid #00d2ff;
+            padding-bottom: 8px;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        /* CORE COMPETENCIES GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+        @media(max-width: 500px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        .skill-category {
+            font-weight: bold;
+            color: #203a43;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .skill-category::before {
+            content: "▪";
+            color: #00d2ff;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        .skill-list {
+            color: #555;
+            font-size: 0.95rem;
+            padding-left: 15px;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eef2f5;
+            padding-bottom: 10px;
+        }
+        .work-title {
+            font-size: 1.4rem;
+            color: #203a43;
+            font-weight: bold;
+        }
+        .work-company {
+            font-size: 1.1rem;
+            color: #00d2ff;
+            font-weight: 600;
+        }
+        .work-card ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .work-card li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .tax-volunteer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media(max-width: 768px) {
+            .tax-volunteer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .gallery-item {
+            background: #f8f9fa;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #eef2f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* ANIMASI SMOOTH IMAGE ZOOM (SEPERTI MENTEGA) */
+        .gallery-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: all 0.4s ease-in-out; 
+            background-color: #ddd;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.05);
+        }
+        
+        .gallery-caption {
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            color: #555;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #eef2f5;
+            font-weight: 500;
+        }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+        }
+        @media(max-width: 600px) {
+            .cert-grid { grid-template-columns: 1fr; }
+            .work-header { flex-direction: column; }
+        }
+        .cert-card {
+            background: white;
+            border-left: 5px solid #203a43;
+            border-radius: 0 8px 8px 0;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .cert-card.expired {
+            border-left-color: #95a5a6;
+            background: #fafafa;
+        }
+        .cert-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #203a43;
+        }
+        .cert-issuer {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 2px;
+            margin-bottom: 15px;
+        }
+        .cert-date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: auto;
+            padding-top: 10px;
+        }
+        .status-tag {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-weight: 600;
+            width: fit-content;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 12px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #0f2027;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="foto-profil-yoga.jpg" alt="Yoga Hartanto, S.Ak." class="profile-img">
+        <h1>Yoga Hartanto, S.Ak.</h1>
+        <div class="degree">Sarjana Akuntansi - Universitas Gunadarma</div>
+        <p>Akuntansi Keuangan, Manajemen Aset, Admin operasional & Perpajakan dengan Pengalaman di Perusahaan Telekomunikasi dan Pengelolaan Bisnis E-Commerce.</p>
+        
+        <!-- TOMBOL KONTAK HEADER -->
+        <div class="contact-container">
+            <a href="https://wa.me/6281285962148" target="_blank" class="btn-contact btn-wa">
+                WhatsApp
+            </a>
+            <a href="https://www.linkedin.com/in/yogahartanto-b273b6220/" target="_blank" class="btn-contact btn-linkedin">
+                LinkedIn
+            </a>
+            <a href="https://www.instagram.com/yogahaaa" target="_blank" class="btn-contact btn-ig">
+                Instagram
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- BAGIAN: CORE COMPETENCIES & SKILLS -->
+        <div class="section">
+            <h2>Core Competencies & Skills</h2>
+            <div class="work-card">
+                <div class="skills-grid">
+                    
+                    <!-- Kategori 1 -->
+                    <div class="skill-item">
+                        <div class="skill-category">Accounting & Financial Systems</div>
+                        <div class="skill-list">SAP (Intermediate), Zahir Accounting, MYOB, Microsoft Dynamics.</div>
+                    </div>
+
+                    <!-- Kategori 2 -->
+                    <div class="skill-item">
+                        <div class="skill-category">Technical & Automation Skills</div>
+                        <div class="skill-list">Advanced Microsoft Excel, Excel Macro (VBA), Robotic Process Automation (RPA) development.</div>
+                    </div>
+
+                    <!-- Kategori 3 -->
+                    <div class="skill-item">
+                        <div class="skill-category">Taxation</div>
+                        <div class="skill-list">Tax Knowledge (PPh 21, PPh 23, PPh 4 Ayat 2, PP23), E-Filing, E-Form, E-Billing.</div>
+                    </div>
+
+                    <!-- Kategori 4 -->
+                    <div class="skill-item">
+                        <div class="skill-category">Financial Operations</div>
+                        <div class="skill-list">Data Reconciliation, General Ledger, Asset Management, External Audit Preparation.</div>
+                    </div>
+
+                    <!-- Kategori 5 -->
+                    <div class="skill-item" style="grid-column: 1 / -1;">
+                        <div class="skill-category">Languages</div>
+                        <div class="skill-list">Indonesian (Native), English (Intermediate Level).</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN: PROYEK OTOMATISASI MACRO EXCEL -->
+        <div class="section">
+            <h2>Featured Automation Project</h2>
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-title">Pengalaman Automated Working Paper & Formula Microsoft Excel</div>
+                    <div class="work-company">Excel VBA Macro Development</div>
+                </div>
+                <p style="margin-bottom: 15px; color: #555;">
+                    Memiliki pengalaman pengembangan otomatisasi kertas kerja Microsoft excel untuk menghilangkan proses input rumus manual yang repetitif dipekerjaan yang berulang dan memiliki load data yang besar, melalui standarisasi template dan script macro excel terintegrasi.
+                </p>
+
+                <!-- Tabel Analisis Efisiensi -->
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 0.95rem;">
+                    <tr style="background-color: #203a43; color: white;">
+                        <th style="padding: 12px; text-align: left;">Indikator Kerja</th>
+                        <th style="padding: 12px; text-align: left;">Metode Manual (Lama)</th>
+                        <th style="padding: 12px; text-align: left;">Solusi VBA Macro Excel (Baru)</th>
+                    </tr>
+                    <tr style="background-color: #f9f9f9; border-bottom: 1px solid #ddd;">
+                        <td style="padding: 12px; font-weight: bold;">Proses Input Rumus</td>
+                        <td style="padding: 12px; color: #c0392b;">Manual, satu per satu, & berulang</td>
+                        <td style="padding: 12px; color: #27ae60; font-weight: bold;">Otomatis via script macro excel</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 12px; font-weight: bold;">Durasi Pengerjaan lebih efisien</td>
+                        <td style="padding: 12px; color: #c0392b;">1 - 2 Jam (60 - 120 Menit)</td>
+                        <td style="padding: 12px; color: #27ae60; font-weight: bold;">Hanya 10 Menit! (Efisiensi 91%)</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9; border-bottom: 1px solid #ddd;">
+                        <td style="padding: 12px; font-weight: bold;">Keamanan Data</td>
+                        <td style="padding: 12px; color: #c0392b;">Rentan rumus terhapus / salah ketik</td>
+                        <td style="padding: 12px; color: #27ae60; font-weight: bold;">Akurasi Mutlak (Formula Terkunci di Sistem)</td>
+                    </tr>
+                </table>
+
+                <!-- Galeri Preview Excel -->
+                <div class="photo-gallery">
+                    <div class="gallery-item">
+                        <img src="macro-template.jpg" alt="Template Kertas Kerja Kosong" class="gallery-img">
+                        <div class="gallery-caption">Tampilan interface template kertas kerja siap input data mentah</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="macro-output.jpg" alt="Hasil Otomatisasi Kertas Kerja" class="gallery-img">
+                        <div class="gallery-caption">Hasil kertas kerja yang terisi formula otomatis setelah Macro running</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BAGIAN PENGALAMAN KERJA -->
+        <div class="section">
+            <h2>Pengalaman Profesional</h2>
+            
+            <!-- PENGALAMAN 1: TELKOMSEL -->
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-title">Operational Support Asset Capitalization</div>
+                    <div class="work-company">PT Kinarya Alihdaya Mandiri Assign PT Telekomunikasi Seluler (Telkomsel)</div>
+                </div>
+                <ul>
+                    <li>Bertanggung jawab melakukan monitoring dan controlling proses kapitalisasi aset perusahaan agar sesuai dengan standar PSAK.</li>
+                    <li>Melakukan rekonsiliasi berkala pada Buku Besar (General Ledger) dan Penerimaan Barang (Goods Receipt) aset guna meminimalkan risiko selisih data.</li>
+                    <li>Mengevaluasi nilai wajar Aset Dalam Konstruksi (AUC) serta menyiapkan laporan pemantauan aset harian dan bulanan.</li>
+                    <li>Melakukan pelaksanaan audit lapangan (cek fisik) bersama auditor eksternal (EY) untuk mengecek secara fisik kesesuaian aset infrastruktur BTS di wilayah Bandung (Kopo & Ciwidey).</li>
+                </ul>
+                
+                <div class="photo-gallery">
+                    <div class="gallery-item">
+                        <img src="cek-fisik-bts-1.jpg" alt="Cek Fisik Aset BTS Bandung" class="gallery-img">
+                        <div class="gallery-caption">Pengecekan fisik komponen infrastruktur BTS Kopo, Bandung</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="cek-fisik-bts-2.jpg" alt="Audit Lapangan Bersama EY" class="gallery-img">
+                        <div class="gallery-caption">Pelaksanaan audit fisik aset bersama eksternal audit EY di Ciwidey</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="tim-telkomsel.jpg" alt="Tim Lapangan Telkomsel" class="gallery-img">
+                        <div class="gallery-caption">Koordinasi lapangan bersama tim regional di Plasa Telkom Group</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PENGALAMAN 2: ONLINE SHOP -->
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-title">E-Commerce Financial & Operational Manager (Freelance)</div>
+                    <div class="work-company">Online Shop "Idaman Store Seller"</div>
+                </div>
+                <ul>
+                    <li>Memegang kendali penuh atas manajemen operasional toko dari proses pemantauan stok di marketplace hingga pengelolaan gudang.</li>
+                    <li>Menangani pembuatan dokumen Pesanan Pembelian (Purchase Order) ke pemasok serta memastikan ketepatan penanganan Pajak Pertambahan Nilai (PPN).</li>
+                    <li>Mengelola pembukuan arus kas bisnis secara mandiri meliputi rekonsiliasi harian, penyusunan laporan keuangan, hingga pelaporan pajak tahunan (PP23) melalui e-Filing DJP.</li>
+                    <li>Mengatur strategi periklanan digital serta efisiensi anggaran iklan di platform Shopee, TikTok, dan Lazada.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BAGIAN PENGALAMAN RELAWAN PAJAK & PENAMPIL PDF -->
+        <div class="section">
+            <h2>Dokumentasi & Pengalaman Tax Volunteer</h2>
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-title">Relawan Pajak (Tax Volunteer)</div>
+                    <div class="work-company">Direktorat Jenderal Pajak (KPP Pratama Cileungsi)</div>
+                </div>
+                <p style="margin-bottom: 15px; color: #555;">Membantu pelayanan pelaporan SPT Tahunan PPh Badan, UMKM, dan Orang Pribadi menggunakan E-Filing dan E-Form selama periode aktif relawan pajak.</p>
+                
+                <div class="tax-volunteer-grid">
+                    <div class="gallery-item">
+                        <img src="pemberian-sertifikat.jpg" alt="Pemberian Sertifikat Tax Volunteer" class="gallery-img">
+                        <div class="gallery-caption">Dokumentasi penyerahan apresiasi oleh Kepala KPP Pratama Cileungsi</div>
+                    </div>
+                    <div class="gallery-item" style="padding: 10px 10px 0 10px;">
+                        <embed src="sertifikat-tax-volunteer.pdf" type="application/pdf" style="width: 100%; height: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                        <div class="gallery-caption" style="margin-top: 10px; border-top: 1px solid #eef2f5;">Lembar Sertifikat Resmi Tax Volunteer (Format PDF)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN PENCAPAIAN / SEPATU COMPASS -->
+        <div class="section">
+            <h2>Achievements & Personal Projects</h2>
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-title">Salah Satu Pemenang Utama Program Kolaborasi Luar Biasa</div>
+                    <div class="work-company">Sepatu Compass x BCA Xpresi (Tahun 2021)</div>
+                </div>
+                <p style="margin-bottom: 15px; color: #555;">Terpilih sebagai pemenang dalam program kampanye kolaborasi nasional antara institusi perbankan BCA (Xpresi) dan brand lokal legendaris Sepatu Compass. Penghargaan dan penyerahan produk eksklusif diserahkan langsung oleh Aji Handoko Purbo selaku Creative Director Sepatu Compass.</p>
+                
+                <!-- GALERI 3 FOTO COMPASS -->
+                <div class="photo-gallery">
+                    <div class="gallery-item">
+                        <img src="compass-penyerahan.jpg" alt="Penyerahan Hadiah oleh Aji Handoko" class="gallery-img">
+                        <div class="gallery-caption">Prosesi penyerahan hadiah produk eksklusif oleh Aji Handoko Purbo</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="compass-bersama-aji.jpg" alt="Foto bersama Aji Handoko" class="gallery-img">
+                        <div class="gallery-caption">Sesi dokumentasi bersama Creative Director Sepatu Compass, Aji Handoko</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="compass-banner.jpg" alt="Banner Pemenang Compass x BCA" class="gallery-img">
+                        <div class="gallery-caption">Official Banner Pengumuman Pemenang Sepatu Compass x BCA Xpresi 2021</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN SERTIFIKASI + PREVIEW PDF -->
+        <div class="section">
+            <h2>Sertifikasi Profesional & Dokumen Resmi</h2>
+            <div class="cert-grid">
+                
+                <!-- 1. BNSP -->
+                <div class="cert-card">
+                    <div class="cert-name">Sertifikasi Profesi "Teknisi Akuntansi Muda"</div>
+                    <div class="cert-issuer">Badan Nasional Sertifikasi Profesi (BNSP)</div>
+                    <embed src="sertifikat-bnsp.pdf" type="application/pdf" class="pdf-viewer">
+                </div>
+
+                <!-- 2. BREVET A -->
+                <div class="cert-card">
+                    <div class="cert-name">Sertifikasi Pajak Brevet A</div>
+                    <div class="cert-issuer">LEPMA Universitas Gunadarma</div>
+                    <div class="cert-date">Tahun Kelulusan: 2020</div>
+                    <embed src="sertifikat-brevet.pdf" type="application/pdf" class="pdf-viewer">
+                </div>
+
+                <!-- 3. WORKSHOP TAX -->
+                <div class="cert-card">
+                    <div class="cert-name">Workshop "Personal Income Taxes"</div>
+                    <div class="cert-issuer">LEPMA Universitas Gunadarma</div>
+                    <div class="cert-date">Tahun Pelaksanaan: 2019</div>
+                    <embed src="sertifikat-workshop.pdf" type="application/pdf" class="pdf-viewer">
+                </div>
+
+                <!-- 4. ZAHIR -->
+                <div class="cert-card expired">
+                    <div class="cert-name">Zahir User Certified</div>
+                    <div class="cert-issuer">PT. Zahir Internasional</div>
+                    <div class="cert-date">Masa Berlaku Selesai: 12 September 2024</div>
+                    <div class="status-tag">Masa Berlaku Berakhir (Expired)</div>
+                    <embed src="sertifikat-zahir.pdf" type="application/pdf" class="pdf-viewer">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER KONTAK -->
+    <footer>
+        <div class="contact-container footer-contacts">
+            <a href="https://wa.me/6281285962148" target="_blank" class="btn-contact btn-wa">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/yogahartanto-b273b6220/" target="_blank" class="btn-contact btn-linkedin">LinkedIn</a>
+            <a href="https://www.instagram.com/yogahaaa" target="_blank" class="btn-contact btn-ig">Instagram</a>
+        </div>
+        <p>&copy; 2026 Yoga Hartanto, S.Ak. Portofolio Finansial & Akuntansi.</p>
+    </footer>
+
+</body>
+</html>
